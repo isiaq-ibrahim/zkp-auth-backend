@@ -1,4 +1,4 @@
-## This is the documentation for the Zero-Knowledge Proof Online Authentication System using ExpressJS
+## This is the Backend Documentation for the Zero-Knowledge Proof Online Authentication System using ExpressJS
 
 ## 🚀 Backend (Express.js)
 The backend handles user registration, challenge generation, and proof verification.
@@ -52,6 +52,6 @@ Registration
 
 
 ## 🔐 Key Features
-✅ Password is never sent or stored on the server.
-✅ Uses Fiat-Shamir ZKP to authenticate securely.
+✅ Password is never sent or stored on the server.  
+✅ Uses Fiat-Shamir ZKP to authenticate securely.  
 ✅ Prevents replay and brute-force attacks.
