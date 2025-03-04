@@ -33,9 +33,9 @@ The next step is installing express, cors, big integer dependencies. Run the fol
 ```sh
 npm install express cors big-integer
 ```
-• express: Web framework for handling requests.
-• cors: Allows frontend requests from different origins.
-** big-integer: Handles large number calculations for modular arithmetic.
+• express: Web framework for handling requests.  
+• cors: Allows frontend requests from different origins.  
+• big-integer: Handles large number calculations for modular arithmetic.
 
 ## 🛠️ How it Works
 Registration
