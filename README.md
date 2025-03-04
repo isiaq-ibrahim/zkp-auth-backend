@@ -37,6 +37,73 @@ npm install express cors big-integer
 • cors: Allows frontend requests from different origins.  
 • big-integer: Handles large number calculations for modular arithmetic.
 
+## 4. Create a 'server.js' file and add the following code
+Inside the zkp-auth-backend folder, create a file named server.js and paste the following code:
+```sh
+const express = require('express');
+const crypto = require('crypto');
+const cors = require('cors');
+const bigInt = require('big-integer');
+
+const app = express();
+app.use(express.json());
+app.use(cors());
+
+const users = {}; // Stores username -> public key (y)
+
+// Parameters for ZKP (use strong primes in production)
+const p = bigInt('23'); // Prime number
+const g = bigInt('5');  // Generator
+
+// Helper function for hashing
+const hash = (...values) => {
+    const hashInput = values.join('');
+    return bigInt(crypto.createHash('sha256').update(hashInput).digest('hex'), 16).mod(p);
+};
+
+// User registration
+app.post('/register', (req, res) => {
+    const { username, y } = req.body;
+    if (users[username]) return res.status(400).json({ error: 'User already exists' });
+    users[username] = bigInt(y);
+    res.json({ message: 'User registered' });
+});
+
+// Step 1: Receive commitment (t) from user, generate challenge (c)
+app.post('/challenge', (req, res) => {
+    const { username, t } = req.body;
+    if (!users[username]) return res.status(400).json({ error: 'User not found' });
+
+    const y = users[username];
+    const tBig = bigInt(t);
+    const c = hash(g, y, tBig);
+    res.json({ c: c.toString() });
+});
+
+// Step 2: Receive response (r) and verify proof
+app.post('/verify', (req, res) => {
+    const { username, t, r } = req.body;
+    if (!users[username]) return res.status(400).json({ error: 'User not found' });
+
+    const y = users[username];
+    const tBig = bigInt(t);
+    const rBig = bigInt(r);
+    const c = hash(g, y, tBig);
+
+    // Verification: g^r * y^c ≡ t (mod p)
+    const lhs = g.modPow(rBig, p).multiply(y.modPow(c, p)).mod(p);
+    if (lhs.equals(tBig)) {
+        res.json({ success: true, message: 'Authentication successful' });
+    } else {
+        res.status(401).json({ success: false, message: 'Authentication failed' });
+    }
+});
+
+const PORT = 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+```
+
 ## 🛠️ How it Works
 Registration
 1. Stores only username and y = g^x mod p.
