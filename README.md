@@ -12,6 +12,10 @@ Setting up the Express.js backend involves installing dependencies, writing the 
 If you haven't already, install Node.js and npm from nodejs.org
 
 or by running the following command in your terminal on your local machine
+```sh
+mkdir zkp-auth-backend
+```
+This will create a directory called zkp-auth-backend
 
 ## 🛠️ How it Works
 Registration
