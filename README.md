@@ -1,6 +1,7 @@
 
 
 🚀 Backend (Express.js)
+
 📁 server.js
 
 🛠️ How it Works
@@ -19,5 +20,7 @@ Registration
 
 🔐 Key Features
 ✅ Password is never sent or stored on the server.
+
 ✅ Uses Fiat-Shamir ZKP to authenticate securely.
+
 ✅ Prevents replay and brute-force attacks.
