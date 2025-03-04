@@ -104,6 +104,17 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 ```
 
+## 5. Run the server
+Once you have completed the steps above, you can start the server by running the following command
+```
+node server.js
+```
+If you want automatic restarts on changes, install nodeman by running the following command
+```
+npm install -g nodemon
+nodemon server.js
+```
+
 ## 🛠️ How it Works
 Registration
 1. Stores only username and y = g^x mod p.
