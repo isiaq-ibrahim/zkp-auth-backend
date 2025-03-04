@@ -15,6 +15,7 @@ or by running the following command in your terminal on your local machine
 ```sh
 mkdir zkp-auth-backend
 ```
+![Creating an ExpressJS Directory using Command Prompt]()
 This will create a directory called zkp-auth-backend
 
 ## 🛠️ How it Works
