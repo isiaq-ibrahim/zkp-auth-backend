@@ -1,10 +1,9 @@
+## This is the documentation for the Zero-Knowledge Proof Online Authentication System using ExpressJS
 
+## 🚀 Backend (Express.js)
+## 📁 server.js
 
-🚀 Backend (Express.js)
-
-📁 server.js
-
-🛠️ How it Works
+## 🛠️ How it Works
 Registration
 1. Stores only username and y = g^x mod p.
 2. Authentication
@@ -18,9 +17,7 @@ Registration
 
 
 
-🔐 Key Features
+## 🔐 Key Features
 ✅ Password is never sent or stored on the server.
-
 ✅ Uses Fiat-Shamir ZKP to authenticate securely.
-
 ✅ Prevents replay and brute-force attacks.
