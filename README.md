@@ -1,7 +1,17 @@
 ## This is the documentation for the Zero-Knowledge Proof Online Authentication System using ExpressJS
 
 ## 🚀 Backend (Express.js)
+The backend handles user registration, challenge generation, and proof verification.
+
 ## 📁 server.js
+
+## 📌 Setup Backend Project
+Setting up the Express.js backend involves installing dependencies, writing the server code, and running the server. Follow these steps:
+
+## 1. Install Node.js and npm
+If you haven't already, install Node.js and npm from nodejs.org
+
+or by running the following command in your terminal on your local machine
 
 ## 🛠️ How it Works
 Registration
